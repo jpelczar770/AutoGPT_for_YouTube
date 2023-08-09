@@ -20,10 +20,14 @@ title_template = PromptTemplate(
 scrip_template = PromptTemplate(
     input_variables = 'title',
     template = 'write me a youtube video script based on this title TITLE: {title}'
+)
     
 llm = OpenAI(temperature=0.9)
 title_chain = LLMChain(llm=llm, prompt=title_template, verbose=True)
+script_chain = LLMChain(llm=llm, prompt=script_template, verbose=True)
+sequential_chain = SimpleSequentialChain(chains=[title_chain, script_chain], verbose=True)
+
 
 if prompt:
-    response = title_chain.run(topic=prompt)
+    response = sequential_chain.run(topic=prompt)
     st.write(response)
