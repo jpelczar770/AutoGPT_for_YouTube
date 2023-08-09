@@ -17,11 +17,11 @@ title_template = PromptTemplate(
     template = 'write me a youtube video title about {topic}'
 
 )
-scrip_template = PromptTemplate(
-    input_variables = 'title',
+script_template = PromptTemplate(
+    input_variables = ['title'],
     template = 'write me a youtube video script based on this title TITLE: {title}'
 )
-    
+
 llm = OpenAI(temperature=0.9)
 title_chain = LLMChain(llm=llm, prompt=title_template, verbose=True)
 script_chain = LLMChain(llm=llm, prompt=script_template, verbose=True)
