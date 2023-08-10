@@ -1,6 +1,5 @@
 import os
 from apikey import apikey
-
 import streamlit as st
 from langchain.llms import OpenAI
 from langchain.prompts import PromptTemplate
@@ -10,7 +9,7 @@ from langchain.utilities import WikipediaAPIWrapper
 
 os.environ['OPENAI_API_KEY'] = apikey
 
-st.title("YouTube GPT Creator 🦜️🔗")
+st.title("YouTube GPT Content Creator 🦜️🔗")
 
 prompt = st.text_input("Hi, give me a topic of your next YouTube content!")
 
