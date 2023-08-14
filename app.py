@@ -31,6 +31,7 @@ title_chain = LLMChain(llm=llm, prompt=title_template, verbose=True, output_key=
 script_chain = LLMChain(llm=llm, prompt=script_template, verbose=True, output_key='script', memory=script_memory)
 
 wiki = WikipediaAPIWrapper()
+
 if prompt:
     title = title_chain.run(prompt)
     wiki_research = wiki.run(prompt)
