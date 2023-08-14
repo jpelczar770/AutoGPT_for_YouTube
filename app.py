@@ -14,13 +14,13 @@ st.title("YouTube GPT Content Creator 🦜️🔗")
 prompt = st.text_input("Hi, give me a topic of your next YouTube content!")
 
 title_template = PromptTemplate(
-    input_variables = ['topic'],
-    template = 'write me a youtube video title about {topic}'
+    input_variables=['topic'],
+    template='write me a youtube video title about {topic}'
 
 )
 script_template = PromptTemplate(
-    input_variables = ['title', 'wikipedia_research'],
-    template = 'write me a youtube video script based on this title TITLE: {title} while leveraging this wikipedia research: {wikipedia_research}'
+    input_variables=['title', 'wikipedia_research'],
+    template='write me a youtube video script based on this title TITLE: {title} while leveraging this wikipedia research: {wikipedia_research}'
 )
 
 title_memory = ConversationBufferMemory(input_key='topic', memory_key='chat history')
